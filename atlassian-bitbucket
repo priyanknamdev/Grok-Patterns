@@ -1,0 +1,12 @@
+This is a GROK pattern for the GROK plugin provided by Elastic stack for Logstash (Open Source). This will filter the logs into fields having: 
+[1] Timestamp
+[2] Log Level
+[3] Thread
+[4] Username
+[5] IP Address for Server 1
+[6] Proxy server IP Address
+[7] REST calls
+[8] Message
+
+
+%{TIMESTAMP_ISO8601:timestamp}%{SPACE:Space}%{LOGLEVEL:Loglevel}%{SPACE:Space}%{NOTSPACE:Thread}%{SPACE:Space}%{USERNAME:Data}%{SPACE:Space}%{NOTSPACE:Word}%{SPACE:Space}%{IPV4:Server_1}%{NOTSPACE:Comma}%{IPV4:Proxy_Server}%{SPACE:Space}%{QUOTEDSTRING:Rest_Call}%{SPACE:Space}%{NOTSPACE:Filter}%{SPACE:Space}%{GREEDYDATA:Message}

@@ -1,0 +1,12 @@
+This is a GROK pattern for the GROK plugin provided by Elastic stack for Logstash (Open Source). This will filter the logs into fields having: 
+[1] client_ip
+[2] Username
+[3] auth
+[4] method
+[5] request_page
+[6] HTTP
+[7] http_version
+[8] server_response
+
+
+%{IP:client_ip} %{USER:ident} %{USER:auth} \[%{HTTPDATE:apache_timestamp}\] \"%{WORD:method} /%{NOTSPACE:request_page} HTTP/%{NUMBER:http_version}\" %{NUMBER:server_response}

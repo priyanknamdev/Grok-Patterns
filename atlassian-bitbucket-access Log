@@ -1,0 +1,22 @@
+This is a GROK pattern for the GROK plugin provided by Elastic stack for Logstash (Open Source). This will filter the logs into fields having: 
+[1]  IP Address 
+[2]  Proxy_IP Address
+[3]  Protocol (HTTP/SSH)
+[4]  Start_Or_End_Of_Request
+[5]  Cluster
+[6]  Request_Minutes_In_Day
+[7]  Request_number_since_last_restart
+[8]  Number_Of_Requests_Being _Serviced_Concurrently_At_The_Start_Of_The_Request
+[9]  Username
+[10] Timestamp
+[11] Request_Action
+[12] Request_Details
+[13] Request_Details (Another one)
+[14] Status_Code
+[15] Bytes_Read
+[16] Bytes_Write
+[17] Labels
+[18] Respones_Time_In_Millis
+[19] Session_ID
+
+%{IPV4:Real_IP}%{NOTSPACE:Comma}%{IPV4:Proxy_IP}%{SPACE:Space}%{NOTSPACE:Pipe}%{SPACE:Space}%{WORD:Protocol}%{SPACE:Space}%{NOTSPACE:Pipe}%{SPACE:Space}%{WORD:Start_Or_End_Of_Request}%{DATA:Cluster}%{DATA:Stash_Unique_Identifier}x%{DATA:Request_Minutes_In_Day}x%{INT:request_number_since_last_restart}x%{INT:Number_Of_Requests_Being _Serviced_Concurrently_At_The_Start_Of_The_Request}%{SPACE:Space}%{NOTSPACE:Pipe}%{SPACE:Space}%{NOTSPACE:Username}%{SPACE:Space}%{NOTSPACE:Pipe}%{SPACE:Space}%{TIMESTAMP_ISO8601:Event_Time}%{SPACE:Space}%{NOTSPACE:Pipe}%{SPACE:Space}%{QUOTEDSTRING:Request_Action}%{SPACE:Space}%{NOTSPACE:Pipe}%{SPACE:Space}%{QUOTEDSTRING:Request_Details}%{SPACE:Space}%{QUOTEDSTRING:Request_Details}%{SPACE:Space}%{NOTSPACE:Pipe}%{SPACE:Space}%{NOTSPACE:Status_Code}%{SPACE:Space}%{NOTSPACE:Pipe}%{SPACE:Space}%{NOTSPACE:Bytes_Read}%{SPACE:Space}%{NOTSPACE:Pipe}%{SPACE:Space}%{NOTSPACE:Bytes_Written}%{SPACE:Space}%{NOTSPACE:Pipe}%{SPACE:Space}%{NOTSPACE:Labels}%{SPACE:Space}%{NOTSPACE:Pipe}%{SPACE:Space}%{NOTSPACE:Respones_Time_In_Millis}%{SPACE:Space}%{NOTSPACE:Pipe}%{SPACE:Space}%{NOTSPACE:Session_ID}%{SPACE:Space}%{NOTSPACE:Pipe}
